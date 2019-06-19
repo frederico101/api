@@ -5,15 +5,29 @@ use Illuminate\Http\Request;
  I´m not lazzy, but I have a little time today */
 
  Route::group(['prefix' => 'api'], function(){
-    
+
     Route::group(['prefix'=>'user'], function(){
           
-         Route::get('', ['users' => 'UserController@allUsers'] );
-         Route::get('{id}',['users' => 'UserController@getUsers']);
-         Route::post('', ['users' => 'UserController@postUsers']);
-
-         Route::put('{id}', ['users' => 'UserController@putUsers']);
-         Route::delete('{id}', ['users' => 'UserController@deleteUsers']);
+         Route::get('', function()
+         {
+             return ' Show list of users';
+         });
+         Route::get('{id}', function($id)
+         {
+             return 'Show users by id '.$id;
+         });
+         Route::post('', function()
+         {
+             return 'Create a new user';
+         });
+         Route::put('{id}', function($id)
+         {
+             return 'Update the user '. $id;
+         });
+         Route::delete('{id}', function($id)
+         {
+             return 'Delete the user '.$id;
+         });
 
     });
 });
