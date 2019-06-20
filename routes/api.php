@@ -10,5 +10,9 @@ use Illuminate\Http\Request;
       Route::get('/', 'UserController@index')->name('index_users');
       Route::get('/{id}', 'UserController@show')->name('single_users');
  
+      Route::post('/', 'UserController@insert')->name('Insert_users');
+      Route::put('/{id}', 'UserController@update')->name('update_users');
+      Route::delete('/{id}', 'UserController@delete')->name('delete_users');
+
      });
 });
